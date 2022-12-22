@@ -2,7 +2,7 @@
 <mat-toolbar class="mat-elevation-z10" color="primary" fxLayout="row">
   <span><button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">|||</button></span>
   <span>Kaki's Creations</span>
-  <span class="toolbar-align-right"></span>
+  <span class="toolbar-align-right"><button mat-button location="center" (click)="this.getTiles()">Get Tiles</button></span>
   <span><button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button></span>
 </mat-toolbar>
 
@@ -11,7 +11,11 @@
 
   </mat-sidenav>
   <mat-sidenav-content>
-    Hello!
+    <span>
+      <app-add-tile></app-add-tile>
+      <app-tiles-list></app-tiles-list>
+    </span>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 

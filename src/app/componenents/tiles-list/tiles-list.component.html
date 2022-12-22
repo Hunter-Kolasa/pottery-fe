@@ -1,1 +1,7 @@
 <p>tiles-list works!</p>
+<div *ngIf="(tiles)">
+  <div class="tile" *ngFor="let t of tiles">
+    <p><button mat-button (click)="deleteTile(t.id)">{{t.title}}</button></p>
+
+  </div>
+</div>

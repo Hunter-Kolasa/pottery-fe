@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 const baseUrl = 'http://localhost:8080/api/tiles';
 
@@ -12,8 +12,10 @@ export class TileService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {
-    return this.http.get(baseUrl);
-  }
+    console.log("In GetAll tile.service.ts")
+    return this.http.get(baseUrl)
+  };
+
 
   get(id: any): Observable<any> {
     return this.http.get(`${baseUrl}/${id}`);

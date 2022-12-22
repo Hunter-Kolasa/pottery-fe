@@ -12,13 +12,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
-
+import { TileService } from './services/tile.service';
+import { AddTileComponent } from './componenents/add-tile/add-tile.component';
+import { TileDetailsComponent } from './componenents/tile-details/tile-details.component';
+import { TilesListComponent } from './componenents/tiles-list/tiles-list.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TileDetailsComponent,
+    AddTileComponent,
+    TilesListComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'tileService', useClass: TileService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

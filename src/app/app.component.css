@@ -21,3 +21,7 @@ mat-sidenav {
 .toolbar-align-right {
   flex: 1 1 auto;
 }
+
+.dark-theme {
+  background-color: rgb(61, 58, 58);
+}
