@@ -1,0 +1,18 @@
+<!-- APP -->
+<mat-toolbar class="mat-elevation-z10" color="primary" fxLayout="row">
+  <span><button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">|||</button></span>
+  <span>Kaki's Creations</span>
+  <span class="toolbar-align-right"></span>
+  <span><button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button></span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    Hello!
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
