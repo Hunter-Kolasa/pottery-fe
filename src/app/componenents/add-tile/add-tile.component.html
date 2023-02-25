@@ -1,1 +1,29 @@
-<p>add-tile works!</p>
+<div class="add-tile">
+  <p>add-tile works!</p>
+  <button (click)="this.toggleForm()">Add Tile</button>
+  <div [hidden]=!openForm>
+    <span><b>Add Tile</b>
+      <form #addTileForm [formGroup]="tileForm" (ngSubmit)="formSubmit()">
+        Tile Name <input type="text" formControlName="tile_name">
+        <br>
+        Title <input type="text" formControlName="title">
+        <br>
+        Tile Title <input type="text" formControlName="tile_title">
+        <br>
+        Subtitle <input type="text" formControlName="Subtitle">
+        <br>
+        Tile Description <input type="text" formControlName="tile_description">
+        <br>
+        Specifications <input type="text" formControlName="specs">
+        <br>
+        Image <input type="text" formControlName="img_url">
+        <br>
+        Price <input type="text" formControlName="price">
+        <br>
+        Public? <input type="checkbox" formControlName="tile_title">
+        <br>
+        <input type="submit" formControlName="tile_title">
+      </form>
+  </span>
+  </div>
+</div>

@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TileService } from './services/tile.service';
 import { AddTileComponent } from './componenents/add-tile/add-tile.component';
@@ -34,6 +34,7 @@ import { TilesListComponent } from './componenents/tiles-list/tiles-list.compone
     MatDividerModule,
     MatButtonToggleModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [

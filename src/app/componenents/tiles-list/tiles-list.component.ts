@@ -17,7 +17,7 @@ export class TilesListComponent implements OnInit{
     .subscribe(
       data => {
         // this.triggerTest(data)
-        console.log("HERRE!")
+        // console.log("HERRE!")
         this.tiles = data;
         console.log(data)
       }

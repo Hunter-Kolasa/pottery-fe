@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
@@ -7,7 +7,11 @@ const baseUrl = 'http://localhost:8080/api/tiles';
 @Injectable({
   providedIn: 'root'
 })
-export class TileService {
+export class TileService implements OnInit{
+
+  ngOnInit(): void {
+      const tiles = new Observable<any>
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +20,9 @@ export class TileService {
     return this.http.get(baseUrl)
   };
 
+  setTiles(tiles: any): Observable<any> {
+    this.setTiles.next()
+  }
 
   get(id: any): Observable<any> {
     return this.http.get(`${baseUrl}/${id}`);
