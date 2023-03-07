@@ -1,0 +1,28 @@
+.tile {
+  border: thin solid;
+  border-radius: 5px;
+}
+
+.grid-list-container {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.tile-info {
+  height: 100%;
+  display: grid;
+
+}
+
+.title {
+  position: relative;
+  font-size: 30px;
+  font-size: 1.8vw;
+  top: 5px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

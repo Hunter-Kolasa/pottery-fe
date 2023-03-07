@@ -1,0 +1,26 @@
+<div class="grid-list-container">
+  <mat-grid-list cols="5" gutterSize="25" rowHeight="1:1">
+    <mat-grid-tile class="tile" *ngFor="let tile of tiles">
+      <ul class="tile-info">
+        <li class="title">
+          {{tile.title}}
+        </li>
+        <li class="subtitle">
+          {{tile.subtitle}}
+        </li>
+        <li class="description">
+          {{tile.tile_description}}
+        </li>
+        <li class="specs">
+          {{tile.specs}}
+        </li>
+        <li class="image">
+          {{tile.image_url}}
+        </li>
+        <li class="price">
+          {{tile.price}}
+        </li>
+      </ul>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

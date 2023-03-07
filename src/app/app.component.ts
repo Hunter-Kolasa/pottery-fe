@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -11,10 +12,6 @@ export class AppComponent {
   page_styles = ['Light','Dark'];
   current_style = this.page_styles[1];
   opened = false;
-
-  getTiles() {
-    console.log('get tiles here')
-  }
 
   // For light/dark style toggle
   togglePageStyle(): void {
