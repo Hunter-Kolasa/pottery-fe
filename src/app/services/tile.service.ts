@@ -1,50 +1,51 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, map, Subject } from 'rxjs';
 
-const baseUrl = 'http://localhost:8080/api/tiles';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class TileService implements OnInit{
+export class TileService{
+  private _tiles: Subject<any>
+  private baseUrl = 'http://localhost:8080/api/tiles';
+  constructor(private httpClient: HttpClient) { }
 
-  ngOnInit(): void {
-      const tiles = new Observable<any>
-  }
-
-  constructor(private http: HttpClient) { }
-
-  getAll(): Observable<any> {
-    console.log("In GetAll tile.service.ts")
-    return this.http.get(baseUrl)
+  getAll() {
+    // console.log("In GetAll tile.service.ts")
+    return this.httpClient.get(this.baseUrl)
   };
 
-  setTiles(tiles: any): Observable<any> {
-    this.setTiles.next()
+  setTiles(tiles: any): void {
+    this._tiles.next(tiles)
+  }
+
+  getTiles(): Observable<any> {
+    return this._tiles
   }
 
   get(id: any): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.httpClient.get(`${this.baseUrl}/${id}`);
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+    return this.httpClient.post(this.baseUrl, data);
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.httpClient.put(`${this.baseUrl}/${id}`, data);
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
 
   deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
+    return this.httpClient.delete(this.baseUrl);
   }
 
   findByTitle(title: any): Observable<any> {
-    return this.http.get(`${baseUrl}?title=${title}`);
+    return this.httpClient.get(`${this.baseUrl}?title=${title}`);
   }
 }

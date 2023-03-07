@@ -13,14 +13,14 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TileService } from './services/tile.service';
-import { AddTileComponent } from './componenents/add-tile/add-tile.component';
+// import { AddTileComponent } from './componenents/add-tile/add-tile.component';
 import { TileDetailsComponent } from './componenents/tile-details/tile-details.component';
 import { TilesListComponent } from './componenents/tiles-list/tiles-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     TileDetailsComponent,
-    AddTileComponent,
+    // AddTileComponent,
     TilesListComponent
   ],
   imports: [

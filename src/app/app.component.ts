@@ -13,10 +13,6 @@ export class AppComponent {
   current_style = this.page_styles[1];
   opened = false;
 
-  getTiles() {
-    console.log('get tiles here')
-  }
-
   // For light/dark style toggle
   togglePageStyle(): void {
     console.log('Page style was" ', this.current_style)
