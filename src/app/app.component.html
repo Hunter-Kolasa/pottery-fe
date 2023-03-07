@@ -11,14 +11,14 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">
-
   </mat-sidenav>
   <mat-sidenav-content>
-    <span>
-      <!-- <app-add-tile></app-add-tile> -->
-      <app-tiles-list></app-tiles-list>
-    </span>
-
+    <div>
+      <span>
+        <app-add-tile></app-add-tile>
+        <app-tiles-list class="main"></app-tiles-list>
+      </span>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 </body>

@@ -7,21 +7,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TileService } from './services/tile.service';
-// import { AddTileComponent } from './componenents/add-tile/add-tile.component';
-import { TileDetailsComponent } from './componenents/tile-details/tile-details.component';
-import { TilesListComponent } from './componenents/tiles-list/tiles-list.component';
+import { TileDetailsComponent } from './components/tile-details/tile-details.component';
+import { TilesListComponent } from './components/tiles-list/tiles-list.component';
+import { AddTileComponent } from './components/add-tile/add-tile.component';
 @NgModule({
   declarations: [
     AppComponent,
     TileDetailsComponent,
-    // AddTileComponent,
-    TilesListComponent
+    AddTileComponent,
+    TilesListComponent,
+    AddTileComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { TilesListComponent } from './componenents/tiles-list/tiles-list.compone
     MatButtonToggleModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [
     { provide: 'tileService', useClass: TileService }
