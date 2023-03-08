@@ -20,6 +20,11 @@ export class TilesListComponent implements OnInit{
         })
   }
 
+  buyIt(id: any) {
+    console.log(id)
+    console.log("You bought it! Your item: ", this.tiles.filter(t => t.id == id)[0].title)
+  }
+
   deleteTile(id: any) {
     this.service.delete(id).subscribe(()=> {
       this.tiles = this.tiles.filter((t: any) => t.id != id)

@@ -1,6 +1,12 @@
 .tile {
   border: thin solid;
   border-radius: 5px;
+  display: flex;
+  margin: 0.75vw;
+  width:20vw;
+  max-width: 400px;
+  min-width: 200px;
+  aspect-ratio: 1/1;
 }
 
 .grid-list-container {
@@ -25,4 +31,8 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.dark-mode {
+  background-color: black;
 }

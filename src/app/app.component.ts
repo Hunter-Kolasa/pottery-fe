@@ -19,6 +19,7 @@ export class AppComponent {
     this.page_styles = [this.page_styles[1],this.page_styles[0]]
     this.current_style = this.page_styles[1];
     console.log('Page style is now" ', this.current_style)
+    console.log(document.body)
     document.body.classList.toggle('dark-theme');
   }
 

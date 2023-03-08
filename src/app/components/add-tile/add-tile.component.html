@@ -1,1 +1,39 @@
-<p>add-tile works!</p>
+<div fxLayout="column wrap">
+  <span class="header">
+    <h2>Add a Tile</h2>
+  </span>
+  <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+    <mat-card class="add-tile-form">
+      <mat-card-header>
+        <mat-card-title>
+          <input type="text" name="tile_name" placeholder="Tile Name" formControlName ="tile_name">
+          <br>
+          <input type="text" name="title" placeholder="Title" formControlName ="title">
+          <br/>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <input type="text" name="subtitle" placeholder="Subtitle" formControlName = "subtitle">
+        </mat-card-subtitle>
+      </mat-card-header>
+      <button #imageInputBtn type="button" class="btn input-btn" (click)="hiddenImageInput.click()">Upload an Image</button>
+      <div style="display: inline-block">
+        <input #hiddenImageInput formControlName="image" id="file" name="file" hidden="true" (change)="submitImage($event)" type="file"/>
+        <!-- <p>{{image}}</p> -->
+      </div>
+      <mat-card-content>
+        <input type="text" name="tile_description" placeholder="Tile Description" formControlName ="tile_description">
+        <br/>
+        <input type="text" name="specs" placeholder="Specifications" formControlName = "specs">
+        <br/>
+        <input type="text" name="price" placeholder="Price" formControlName = "price">
+        <br/>
+        <input type="checkbox" name="public" id="public" formControlName="public">
+        <label for="public">Make Public?</label>
+      </mat-card-content>
+      <mat-card-actions>
+        <input type="submit"  value="Create Tile">
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+<p> Textbox result is: {{title}} </p>
