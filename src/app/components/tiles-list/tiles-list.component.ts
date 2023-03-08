@@ -17,6 +17,7 @@ export class TilesListComponent implements OnInit{
         .subscribe(response => {
           this.tiles = response
           console.log(this.tiles)
+          // this.service.setTiles(this.tiles)
         })
   }
 

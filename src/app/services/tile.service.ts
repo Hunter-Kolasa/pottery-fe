@@ -7,11 +7,16 @@ import { Observable, map, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class TileService{
+export class TileService implements OnInit{
   private _tiles: Subject<any>
   private baseUrl = 'http://localhost:8080/api/tiles';
   constructor(private httpClient: HttpClient) { }
 
+  ngOnInit(): void {
+      // this.getAll().subscribe(res => {
+      //   this.setTiles(res)
+      // })
+  }
   getAll() {
     // console.log("In GetAll tile.service.ts")
     return this.httpClient.get(this.baseUrl)
@@ -22,6 +27,7 @@ export class TileService{
   }
 
   getTiles(): Observable<any> {
+    console.log("Trigger getTiles() in service")
     return this._tiles
   }
 

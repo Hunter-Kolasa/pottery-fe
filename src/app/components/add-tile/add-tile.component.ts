@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { TileService } from 'src/app/services/tile.service';
 
 
 @Component({
@@ -19,6 +20,8 @@ export class AddTileComponent implements OnInit{
   image_url = 'https://i.cbc.ca/1.5359228.1577206958!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_620/smudge-the-viral-cat.jpg';
   price;
   public;
+
+  constructor(private service:TileService) {}
   ngOnInit(): void {
     this.formData = new FormGroup({
       tile_name: new FormControl(),
@@ -30,14 +33,25 @@ export class AddTileComponent implements OnInit{
       price: new FormControl(),
       public: new FormControl()
     })
-
   }
+
   onClickSubmit(data) {
-    // this.title = data.title
+    data.image = this.image_url
+    this.tile_name = data.tile_name
+    this.title = data.title
+    this.subtitle = data.subtitle
+    this.tile_description = data.tile_description
+    this.specs = data.specs
+    this.image = data.image
+    this.price = data.price
+    this.public = data.public
     console.log(data)
+    this.service.create(data).subscribe(res => {
+      console.log(res)
+    })
   }
   submitImage(event) {
-    console.log(event.target.files[0])
+
   }
 
 }
