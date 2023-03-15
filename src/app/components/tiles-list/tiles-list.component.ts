@@ -17,7 +17,13 @@ export class TilesListComponent implements OnInit{
         .subscribe(response => {
           this.tiles = response
           console.log(this.tiles)
+          // this.service.setTiles(this.tiles)
         })
+  }
+
+  buyIt(id: any) {
+    console.log(id)
+    console.log("You bought it! Your item: ", this.tiles.filter(t => t.id == id)[0].title)
   }
 
   deleteTile(id: any) {
