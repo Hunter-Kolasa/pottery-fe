@@ -14,13 +14,10 @@ export class TilesListComponent implements OnInit{
 
   ngOnInit(): void {
     this.service.getAll().subscribe((res) => {
-      console.log('getAll returned ',  res)
-      // this.tiles = res
       this.service.setTiles(res)
     })
     this.service.getTiles().subscribe((res) => {
       this.tiles = res
-      console.log('Response recieved from getTiles')
     })
   }
 
@@ -35,7 +32,7 @@ export class TilesListComponent implements OnInit{
   deleteTile(id: any) {
     this.service.delete(id).subscribe(()=> {
       this.tiles = this.tiles.filter((t: any) => t.id != id)
-      // this.service.setTiles(this.tiles.filter((t: any) => t.id != id))
+      this.service.setTiles(this.tiles)
     });
   }
 }

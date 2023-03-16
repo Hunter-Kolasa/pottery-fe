@@ -41,16 +41,8 @@ export class AddTileComponent implements OnInit{
   }
 
   onClickSubmit(data) {
-    // data.image = this.image_url
-    // this.tile_name = data.tile_name
-    // this.title = data.title
-    // this.subtitle = data.subtitle
-    // this.tile_description = data.tile_description
-    // this.specs = data.specs
-    // this.image = data.image
-    // this.price = data.price
-    // this.public = data.public
     console.log(data)
+    data.image_url = this.image_url
     this.service.create(data).subscribe(res => {
       console.log('Sent this data to service.create: ', res)
       this.tiles.push(res)
