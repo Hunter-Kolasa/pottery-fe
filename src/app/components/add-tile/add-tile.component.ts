@@ -9,6 +9,7 @@ import { TileService } from 'src/app/services/tile.service';
   styleUrls: ['./add-tile.component.css']
 })
 export class AddTileComponent implements OnInit{
+  tiles:any;
   formData;
   tile_name;
   title;
@@ -33,21 +34,19 @@ export class AddTileComponent implements OnInit{
       price: new FormControl(),
       public: new FormControl()
     })
+    this.service.getTiles().subscribe((res) => {
+      this.tiles = res
+      console.log('Response recieved from getTiles')
+    })
   }
 
   onClickSubmit(data) {
-    data.image = this.image_url
-    this.tile_name = data.tile_name
-    this.title = data.title
-    this.subtitle = data.subtitle
-    this.tile_description = data.tile_description
-    this.specs = data.specs
-    this.image = data.image
-    this.price = data.price
-    this.public = data.public
     console.log(data)
+    data.image_url = this.image_url
     this.service.create(data).subscribe(res => {
-      console.log(res)
+      console.log('Sent this data to service.create: ', res)
+      this.tiles.push(res)
+      this.service.setTiles(this.tiles)
     })
   }
   submitImage(event) {
