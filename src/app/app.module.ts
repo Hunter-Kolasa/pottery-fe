@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatSidenav } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -19,6 +20,7 @@ import { TileService } from './services/tile.service';
 import { TileDetailsComponent } from './components/tile-details/tile-details.component';
 import { TilesListComponent } from './components/tiles-list/tiles-list.component';
 import { AddTileComponent } from './components/add-tile/add-tile.component';
+import { SidenavService } from './services/sidenav.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { AddTileComponent } from './components/add-tile/add-tile.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
+
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
@@ -45,7 +48,8 @@ import { AddTileComponent } from './components/add-tile/add-tile.component';
     MatCardModule
   ],
   providers: [
-    { provide: 'tileService', useClass: TileService }
+    { provide: 'tileService', useClass: TileService },
+    { provide: 'sidenavService', useClass: SidenavService }
   ],
   bootstrap: [AppComponent]
 })

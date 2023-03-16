@@ -1,0 +1,15 @@
+.add-tile-form {
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  /* padding: %; */
+  margin: 5px;
+  /* width: 85%; */
+}
+
+input[name="price"] {
+  max-width: 30%;
+}

@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { TileService } from 'src/app/services/tile.service';
@@ -41,8 +42,10 @@ export class AddTileComponent implements OnInit{
   }
 
   onClickSubmit(data) {
+
     console.log(data)
     data.image_url = this.image_url
+    // console.log('data after adding fake URL ')
     this.service.create(data).subscribe(res => {
       console.log('Sent this data to service.create: ', res)
       this.tiles.push(res)
