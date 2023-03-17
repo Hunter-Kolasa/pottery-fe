@@ -1,24 +1,32 @@
 <div class="grid-list-container">
   <div fxLayout="row wrap">
     <mat-card class="tile" *ngFor="let tile of tiles">
-      <mat-card-header>
-        <mat-card-title>
-          {{tile.title}}
-        </mat-card-title>
-        <mat-card-subtitle>
-          {{tile.subtitle}}
-        </mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src={{tile.image_url}} alt={{tile.image_url}}>
-      <mat-card-content>
-        {{tile.tile_description}}
-        <p>{{tile.specs}}</p>
-        <p>{{tile.price}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="buyIt(tile.id)">Buy</button>
-        <button mat-button (click)="deleteTile(tile.id)">Delete</button>
-      </mat-card-actions>
+        <!-- <button (click)="handleTileClick(tile)"> -->
+        <mat-card-header>
+          <mat-card-title class="title">
+            {{tile.title}}
+          </mat-card-title>
+          <mat-card-subtitle class="subtitle">
+            {{tile.subtitle}}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <img class="main-img" mat-card-image src={{tile.image_url}} alt={{tile.image_url}}>
+        <mat-card-content>
+          <span class="description">
+            {{tile.tile_description}}
+          </span>
+          <span class="specs">
+            <p>{{tile.specs}}</p>
+          </span>
+          <span class="price">
+            <p>{{tile.price}}</p>
+          </span>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="buyIt(tile.id)">Buy</button>
+          <button mat-button (click)="deleteTile(tile.id)">Delete</button>
+        </mat-card-actions>
+      <!-- </button> -->
     </mat-card>
   </div>
 </div>

@@ -21,6 +21,11 @@ export class TilesListComponent implements OnInit{
     })
   }
 
+  // long term idea here is to make each tile a button that opens the 'tile-details' component
+  handleTileClick(tile) {
+    console.log('TileClick! ', tile)
+  }
+
   buyIt(id: any) {
     console.log(id)
     console.log("You bought it! Your item: ", this.tiles.filter(t => t.id == id)[0].title)
