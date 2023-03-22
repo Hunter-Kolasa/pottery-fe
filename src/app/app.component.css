@@ -9,20 +9,20 @@ mat-sidenav {
   margin: 16px;
   border-right: none;
   border-radius: 10px;
-  padding: 16px;
+  /* padding: 16px; */
   text-align: center;
 }
 
-mat-toolbar {
-  /* border-radius: 10px; */
-  padding: 16px;
-  margin-bottom:2%;
-}
+/* mat-toolbar {
+  /* padding: 16px; */
+  /* margin-bottom:2%; */
+/* } */
 
 
 
 .toolbar-align-right {
   flex: 1 1 auto;
 }
+
 
 

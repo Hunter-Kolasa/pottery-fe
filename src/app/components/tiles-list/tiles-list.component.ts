@@ -14,11 +14,13 @@ export class TilesListComponent implements OnInit{
 
   ngOnInit(): void {
     this.service.getAll().subscribe((res) => {
-      this.service.setTiles(res)
+      this.tiles = this.service.setTiles(res)
     })
-    this.service.getTiles().subscribe((res) => {
-      this.tiles = res
-    })
+  }
+
+  // longer term idea here is to make each tile a button that opens the 'tile-details' component
+  handleTileClick(tile) {
+    console.log('TileClick! ', tile)
   }
 
   buyIt(id: any) {
@@ -30,7 +32,7 @@ export class TilesListComponent implements OnInit{
   }
 
   deleteTile(id: any) {
-    this.service.delete(id).subscribe(()=> {
+    this.service.delete(id).subscribe((res)=> {
       this.tiles = this.tiles.filter((t: any) => t.id != id)
       this.service.setTiles(this.tiles)
     });
