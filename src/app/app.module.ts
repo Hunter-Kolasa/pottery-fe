@@ -19,15 +19,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { TileService } from './services/tile.service';
 import { TileDetailsComponent } from './components/tile-details/tile-details.component';
 import { TilesListComponent } from './components/tiles-list/tiles-list.component';
-import { AddTileComponent } from './components/add-tile/add-tile.component';
+import { AddTileComponent, AddTileDialog } from './components/add-tile/add-tile.component';
 import { SidenavService } from './services/sidenav.service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from './error.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
     TileDetailsComponent,
     AddTileComponent,
     TilesListComponent,
-    AddTileComponent
+    AddTileComponent,
+    AddTileDialog
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,7 @@ import { SidenavService } from './services/sidenav.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
-
+    DragDropModule,
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
@@ -45,11 +51,13 @@ import { SidenavService } from './services/sidenav.service';
     HttpClientModule,
     // MatGridListModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [
     { provide: 'tileService', useClass: TileService },
-    { provide: 'sidenavService', useClass: SidenavService }
+    { provide: 'sidenavService', useClass: SidenavService },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

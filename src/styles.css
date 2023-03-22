@@ -68,3 +68,7 @@ button {
   background-color: rgba(37, 2, 2, 0.568);
   transition: var(--color-transition);
 }
+
+.add-tile-dialog-container .mat-dialog-container {
+  padding: 100px !important;
+}

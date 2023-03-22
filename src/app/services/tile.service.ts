@@ -27,12 +27,13 @@ export class TileService{
     return this.httpClient.get(this.baseUrl)
   };
 
-  setTiles = (tiles: any): void => {
+  setTiles = (tiles: any): Observable<any> => {
     console.log('setting _tiles to: ', tiles)
     if (tiles.length) {
       console.log('setting _tile', tiles)
       this._tiles.next(tiles)
     }
+    return tiles
   }
 
   getTiles(): Observable<any> {

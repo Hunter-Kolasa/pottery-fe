@@ -3,12 +3,12 @@
 <mat-toolbar class="mat-elevation-z10" color="primary" fxLayout="row">
   <span><button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">|||</button></span>
   <span>Kaki's Creations</span>
+  <app-add-tile></app-add-tile>
   <span><button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button></span>
 </mat-toolbar>
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">
-    <app-add-tile></app-add-tile>
+    <p>Login details and other options here?</p>
   </mat-sidenav>
   <mat-sidenav-content>
     <div>

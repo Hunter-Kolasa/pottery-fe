@@ -13,7 +13,12 @@
   background: khaki;
   color: var(--text-color);
   transition: var(--color-transition);
+
 }
+
+/* mat-sidenav{
+
+} */
 
 mat-card-subtitle{
   color: var(--text-color);
@@ -22,6 +27,11 @@ mat-card-subtitle{
 mat-card{
   align-items: stretch;
   justify-content: center;
+
+}
+
+.mat-drawer-inner-container{
+  min-height: fit-content;
 }
 
 .mat-mdc-card-header {
