@@ -27,11 +27,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './error.interceptor';
-// import { AuthInterceptor } from './auth.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { authInterceptorProviders } from './auth.interceptor';
 
 
 @NgModule({
@@ -66,6 +66,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatDialogModule
   ],
   providers: [
+    authInterceptorProviders,
     { provide: 'tileService', useClass: TileService },
     { provide: 'sidenavService', useClass: SidenavService },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
