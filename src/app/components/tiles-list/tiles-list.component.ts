@@ -15,6 +15,7 @@ export class TilesListComponent implements OnInit{
   ngOnInit(): void {
     this.service.getAll().subscribe((res) => {
       this.tiles = this.service.setTiles(res)
+      console.log("Over HERE!! ", this.tiles)
     })
   }
 
