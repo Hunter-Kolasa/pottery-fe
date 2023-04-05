@@ -8,7 +8,9 @@
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">
-    <p>Login details and other options here?</p>
+    <app-login></app-login>
+    <br>
+    <app-register></app-register>
   </mat-sidenav>
   <mat-sidenav-content>
     <div>
