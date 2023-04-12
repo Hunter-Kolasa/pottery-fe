@@ -1,13 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { TokenStorageService } from '../../services/token-storage.service';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+
+export class LoginComponent {
+  constructor(public dialog:MatDialog) {}
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+    }
+    const dialogRef = this.dialog.open(LoginDialog)
+  }
+}
+
+@Component({
+  selector: 'login-dialog',
+  templateUrl: 'login-dialog.html'
+})
+
+export class LoginDialog implements OnInit{
   form: any = {
     username: null,
     password: null

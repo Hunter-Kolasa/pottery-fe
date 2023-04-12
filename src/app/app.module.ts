@@ -19,6 +19,10 @@ import { TileService } from './services/tile.service';
 import { TileDetailsComponent } from './components/tile-details/tile-details.component';
 import { TilesListComponent } from './components/tiles-list/tiles-list.component';
 import { AddTileComponent, AddTileDialog } from './components/add-tile/add-tile.component';
+import { HomeComponent } from './components/home/home.component';
+import { RegisterComponent, RegisterDialog } from './components/register/register.component';
+import { LoginComponent, LoginDialog } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 import { SidenavService } from './services/sidenav.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,10 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './error.interceptor';
-import { HomeComponent } from './components/home/home.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProfileComponent } from './components/profile/profile.component';
+
 import { authInterceptorProviders } from './auth.interceptor';
 
 
@@ -44,7 +45,9 @@ import { authInterceptorProviders } from './auth.interceptor';
     AddTileDialog,
     HomeComponent,
     RegisterComponent,
+    RegisterDialog,
     LoginComponent,
+    LoginDialog,
     ProfileComponent,
   ],
   imports: [
