@@ -5,12 +5,14 @@
   <span>Kaki's Creations</span>
   <app-add-tile></app-add-tile>
   <span><button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button></span>
+  <span></span>
+  <app-login></app-login>
+  <br>
+  <app-register></app-register>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">
-    <app-login></app-login>
-    <br>
-    <app-register></app-register>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <div>
