@@ -9,10 +9,13 @@ import { ASTWithSource } from '@angular/compiler';
   providedIn: 'root'
 })
 export class TileService{
-  private _tiles: BehaviorSubject<any>
+  private _tilesSource: BehaviorSubject<any> = new BehaviorSubject([])
+  _tiles = this._tilesSource.asObservable();
   private baseUrl = 'http://localhost:8080/api/tiles';
   constructor(private httpClient: HttpClient) {
-    this._tiles = new BehaviorSubject([])
+    this.getAll().subscribe(res => {
+      this.setTiles(res)
+    })
   }
 
   // ngOnInit(): void {
@@ -31,9 +34,23 @@ export class TileService{
     console.log('setting _tiles to: ', tiles)
     if (tiles.length) {
       console.log('setting _tile', tiles)
-      this._tiles.next(tiles)
+      this._tilesSource.next(tiles)
     }
     return tiles
+  }
+
+  addTile = (tile: any) => {
+    const currentTiles = this._tilesSource.value;
+    const updatedTiles = [...currentTiles, tile];
+    this._tilesSource.next(updatedTiles);
+  }
+
+  deleteTile = (id: number) => {
+    this.delete(id).subscribe(res => {
+      console.log(res);
+      const currentTiles = this._tilesSource.value;
+      this._tilesSource.next(currentTiles.filter((t: any) => t.id != id));
+    })
   }
 
   getTiles(): Observable<any> {
@@ -41,7 +58,7 @@ export class TileService{
     return this._tiles
   }
 
-  get(id: any): Observable<any> {
+  get(id: number): Observable<any> {
     return this.httpClient.get(`${this.baseUrl}/${id}`);
   }
 
@@ -49,11 +66,11 @@ export class TileService{
     return this.httpClient.post(this.baseUrl, data);
   }
 
-  update(id: any, data: any): Observable<any> {
+  update(id: number, data: any): Observable<any> {
     return this.httpClient.put(`${this.baseUrl}/${id}`, data);
   }
 
-  delete(id: any): Observable<any> {
+  delete(id: number): Observable<any> {
     return this.httpClient.delete(`${this.baseUrl}/${id}`);
   }
 
