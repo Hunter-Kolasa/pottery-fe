@@ -13,8 +13,9 @@ export class TilesListComponent implements OnInit{
   constructor(private service:TileService) {}
 
   ngOnInit(): void {
-    this.service.getAll().subscribe((res) => {
-      this.tiles = this.service.setTiles(res)
+    this.service.getTiles().subscribe(res => {
+      this.tiles = res
+      console.log('TilesList is updating its local value with', res)
     })
   }
 
@@ -32,9 +33,6 @@ export class TilesListComponent implements OnInit{
   }
 
   deleteTile(id: any) {
-    this.service.delete(id).subscribe((res)=> {
-      this.tiles = this.tiles.filter((t: any) => t.id != id)
-      this.service.setTiles(this.tiles)
-    });
+    this.service.deleteTile(id)
   }
 }

@@ -27,7 +27,6 @@ export class AddTileComponent{
   templateUrl: 'add-tile-dialog.html'
 })
 export class AddTileDialog implements OnInit{
-  tiles:any;
   formData;
   tile_name;
   title;
@@ -51,10 +50,6 @@ export class AddTileDialog implements OnInit{
     price: new FormControl(),
     public: new FormControl()
     })
-    this.service.getTiles().subscribe((res) => {
-      this.tiles = res
-      console.log('Response recieved from getTiles')
-    })
   }
   constructor(
     public dialogRef: MatDialogRef<AddTileDialog>,
@@ -71,8 +66,7 @@ export class AddTileDialog implements OnInit{
     // console.log('data after adding fake URL ')
     this.service.create(data).subscribe(res => {
       console.log('Sent this data to service.create: ', res)
-      this.tiles.push(res)
-      this.service.setTiles(this.tiles)
+      this.service.addTile(res)
       this.dialogRef.close();
     })
   }
