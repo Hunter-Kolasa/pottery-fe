@@ -1,14 +1,22 @@
 <!-- APP -->
 
 <mat-toolbar class="mat-elevation-z10" color="primary" fxLayout="row">
-  <span><button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">|||</button></span>
+  <span>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">|||</button>
+  </span>
   <span>Kaki's Creations</span>
   <app-add-tile></app-add-tile>
-  <span><button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button></span>
-  <span></span>
-  <app-login></app-login>
-  <br>
-  <app-register></app-register>
+  <span>
+    <button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button>
+  </span>
+  <div class="flex-right-align">
+    <span class="btn-container-right">
+      <app-login></app-login>
+    </span>
+    <span class="btn-container-right">
+      <app-register></app-register>
+    </span>
+</div>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">

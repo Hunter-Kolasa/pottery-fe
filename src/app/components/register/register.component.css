@@ -1,0 +1,8 @@
+.btn-right:hover {
+  transform: scale(1.1);
+  filter: saturate(1.6)
+  /* color */
+}
+.btn-right {
+  transition: all .2s ease-in-out;
+}

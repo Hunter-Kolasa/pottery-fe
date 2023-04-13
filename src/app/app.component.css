@@ -4,6 +4,10 @@ mat-sidenav-container {
   height: calc(100vh);
 }
 
+.mat-toolbar {
+  box-shadow: 0 1vh black;
+}
+
 mat-sidenav {
   width: 300px;
   margin: 16px;
@@ -24,5 +28,12 @@ mat-sidenav {
   flex: 1 1 auto;
 }
 
+.flex-right-align {
+  margin-left:auto;
+}
+
+.btn-container-right {
+  padding: 1vw;
+}
 
 
