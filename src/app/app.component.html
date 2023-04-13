@@ -1,8 +1,8 @@
 <!-- APP -->
 
 <mat-toolbar class="mat-elevation-z10" color="primary" fxLayout="row">
-  <span>
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">|||</button>
+  <span class="btn-icon-span">
+    <button class='btn-icon' *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()"><img class="icon"src=".\assets\icon.PNG"></button>
   </span>
   <span>Kaki's Creations</span>
   <app-add-tile></app-add-tile>

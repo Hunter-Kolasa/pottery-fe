@@ -74,7 +74,7 @@ button {
   padding: 100px !important;
 }
 
-button:hover {
+button .btn-right:hover {
   transform: scale(1.1);
   filter: saturate(1.6);
 }
