@@ -9,14 +9,16 @@
   <span>
     <button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button>
   </span>
-  <div class="flex-right-align">
-    <span class="btn-container-right">
-      <app-login></app-login>
-    </span>
-    <span class="btn-container-right">
-      <app-register></app-register>
-    </span>
-</div>
+  <div *ngIf="!loggedIn; else logOut" class="flex-right-align">
+    <div id="login_signup">
+      <span class="btn-container-right">
+        <app-login></app-login>
+      </span>
+      <span class="btn-container-right">
+        <app-register></app-register>
+      </span>
+    </div>
+  </div>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">
@@ -31,4 +33,9 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
+<ng-template #logOut>
+  <span class="btn-container-right">
+    <button class="btn-right" (click)="signOut()">Logout</button>
+  </span>
+</ng-template>
 
