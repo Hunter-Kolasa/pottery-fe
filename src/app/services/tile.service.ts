@@ -40,6 +40,7 @@ export class TileService{
   }
 
   addTile = (tile: any) => {
+    const curr_user = this.tokenService.getUser().id;
     const currentTiles = this._tilesSource.value;
     const updatedTiles = [...currentTiles, tile];
     this._tilesSource.next(updatedTiles);
