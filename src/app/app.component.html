@@ -1,11 +1,13 @@
 <!-- APP -->
 
 <mat-toolbar class="mat-elevation-z10" color="primary" fxLayout="row">
+  <mat-toolbar-row>
   <span class="btn-icon-span">
     <button class='btn-icon' *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()"><img class="icon"src=".\assets\icon.PNG"></button>
   </span>
-  <span>Kaki's Creations</span>
-  <app-add-tile></app-add-tile>
+  <span class="header-item">Kaki's Creations</span>
+  <app-add-tile class="header-item"></app-add-tile>
+  <span class="toolbar-align-right"></span>
   <span>
     <button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button>
   </span>
@@ -19,6 +21,7 @@
       </span>
     </div>
   </div>
+</mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">
@@ -34,6 +37,7 @@
 </mat-sidenav-container>
 
 <ng-template #logOut>
+  <div>Hi, {{ username }}!</div>
   <span class="btn-container-right">
     <button class="btn-right" (click)="signOut()">Logout</button>
   </span>

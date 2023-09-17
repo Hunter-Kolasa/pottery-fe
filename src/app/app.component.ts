@@ -1,6 +1,6 @@
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { TokenStorageService } from './services/token-storage.service';
 
 
 @Component({
@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
   current_style = this.page_styles[1];
   opened = false;
   loggedIn: boolean;
+  username = this.tokenService.getUser().username
 
   constructor(private tokenService: TokenStorageService) { }
 

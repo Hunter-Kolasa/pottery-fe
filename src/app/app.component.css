@@ -32,6 +32,7 @@ mat-sidenav {
 
 .btn-icon-span {
   height: 100%;
+  margin-left: 20px;
 
   /* align-items: center; */
 }
@@ -50,7 +51,9 @@ mat-sidenav {
   filter: saturate(1.6);
 }
 
-
+.header-item {
+  margin-left: 50px;
+}
 
 /* .btn-icon:hover {
 
@@ -66,6 +69,7 @@ mat-sidenav {
 
 .btn-container-right {
   padding: 1vw;
+  align-content: right;
 }
 
 .btn-right:hover {

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map, Subject } from 'rxjs';
 import { BehaviorSubject } from 'rxjs'
 import { ASTWithSource } from '@angular/compiler';
+import { TokenStorageService } from './token-storage.service';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class TileService{
   private _tilesSource: BehaviorSubject<any> = new BehaviorSubject([])
   _tiles = this._tilesSource.asObservable();
   private baseUrl = 'http://localhost:8080/api/tiles';
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private tokenService: TokenStorageService) {
     this.getAll().subscribe(res => {
       this.setTiles(res)
     })
@@ -40,6 +41,9 @@ export class TileService{
   }
 
   addTile = (tile: any) => {
+    const curr_user = this.tokenService.getUser();
+    console.log(curr_user);
+
     const currentTiles = this._tilesSource.value;
     const updatedTiles = [...currentTiles, tile];
     this._tilesSource.next(updatedTiles);

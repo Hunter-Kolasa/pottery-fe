@@ -28,6 +28,7 @@ mat-card-content {
 .header {
   background: blue;
   border-radius: 5% 5% 100% 100%;
+  margin-left: 15px;
 }
 
 .mat-dialog-container {
