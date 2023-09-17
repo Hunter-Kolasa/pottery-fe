@@ -1,14 +1,31 @@
 <!-- APP -->
 
 <mat-toolbar class="mat-elevation-z10" color="primary" fxLayout="row">
-  <span><button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">|||</button></span>
-  <span>Kaki's Creations</span>
-  <app-add-tile></app-add-tile>
-  <span><button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button></span>
+  <mat-toolbar-row>
+  <span class="btn-icon-span">
+    <button class='btn-icon' *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()"><img class="icon"src=".\assets\icon.PNG"></button>
+  </span>
+  <span class="header-item">Kaki's Creations</span>
+  <app-add-tile class="header-item"></app-add-tile>
+  <span class="toolbar-align-right"></span>
+  <span>
+    <button mat-button location="end" (click)="togglePageStyle()">{{current_style}}</button>
+  </span>
+  <div *ngIf="!loggedIn; else logOut" class="flex-right-align">
+    <div id="login_signup">
+      <span class="btn-container-right">
+        <app-login></app-login>
+      </span>
+      <span class="btn-container-right">
+        <app-register></app-register>
+      </span>
+    </div>
+  </div>
+</mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" [fixedTopGap]="64" [fixedInViewport]="true" [(opened)]="opened">
-    <p>Login details and other options here?</p>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <div>
@@ -19,4 +36,10 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
+<ng-template #logOut>
+  <div>Hi, {{ username }}!</div>
+  <span class="btn-container-right">
+    <button class="btn-right" (click)="signOut()">Logout</button>
+  </span>
+</ng-template>
 
