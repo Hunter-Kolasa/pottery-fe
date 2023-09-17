@@ -47,6 +47,7 @@ button {
   border-radius: 2px;
   color: var(--btn-txt-color);
   background-color: var(--btn-bg-color);
+  transition: all .2s ease-in-out;
 }
 
 .mat-drawer-container {
@@ -71,4 +72,9 @@ button {
 
 .add-tile-dialog-container .mat-dialog-container {
   padding: 100px !important;
+}
+
+button .btn-right:hover {
+  transform: scale(1.1);
+  filter: saturate(1.6);
 }
