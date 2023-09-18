@@ -1,4 +1,3 @@
-build
 .nyc
 .env
 /dist
