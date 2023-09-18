@@ -1,6 +1,6 @@
+build
 .nyc
 .env
-/dist
 /tmp
 /out-tsc
 /bazel-out
